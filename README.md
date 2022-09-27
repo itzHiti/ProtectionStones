@@ -1,5 +1,7 @@
 # ProtectionStones v.1.0.0 (rewritten)
 
+IDE: Eclipse 2020-12
+
 [🇺🇸]
 Rewritten version of protection stones by Vik1395 and Dragoboss.
 Written by itzHiti (me): 02/25/2021
