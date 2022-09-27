@@ -77,7 +77,7 @@ public class Main extends JavaPlugin
             Main.wgd = this.getServer().getPluginManager().getPlugin("WorldGuard");
         }
         else {
-            this.getLogger().info("WorldGuard и WorldEdit не включены! Отключаем ProtectionStones...");
+            this.getLogger().info("WorldGuard Рё WorldEdit РЅРµ РІРєР»СЋС‡РµРЅС‹! РћС‚РєР»СЋС‡Р°РµРј ProtectionStones...");
             this.getServer().getPluginManager().disablePlugin((Plugin)this);
         }
         String[] split2;
@@ -98,8 +98,8 @@ public class Main extends JavaPlugin
         Main.deniedWorlds = Arrays.asList(this.getConfig().getString("Worlds Denied").toLowerCase().split(","));
         Main.uuid = this.getConfig().getBoolean("UUID");
         this.initConfig();
-        this.getLogger().info("ProtectionStones успешно запустился!");
-        this.getLogger().info("Плагин создал itzHiti");
+        this.getLogger().info("ProtectionStones СѓСЃРїРµС€РЅРѕ Р·Р°РїСѓСЃС‚РёР»СЃСЏ!");
+        this.getLogger().info("РџР»Р°РіРёРЅ СЃРѕР·РґР°Р» itzHiti");
     }
     
     public boolean onCommand(final CommandSender s, final Command cmd, final String label, final String[] args) {
@@ -109,7 +109,7 @@ public class Main extends JavaPlugin
                 final WorldGuardPlugin wg = (WorldGuardPlugin)Main.wgd;
                 final RegionManager rgm = wg.getRegionManager(p.getWorld());
                 if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-                    p.sendMessage(ChatColor.GRAY + "Плагин " + ChatColor.GOLD + "ProtectionStones v 1.0" + ChatColor.GRAY + " от " + ChatColor.RED +"itzHiti" + ChatColor.GRAY + ".");
+                    p.sendMessage(ChatColor.GRAY + "РџР»Р°РіРёРЅ " + ChatColor.GOLD + "ProtectionStones v 1.0" + ChatColor.GRAY + " РѕС‚ " + ChatColor.RED +"itzHiti" + ChatColor.GRAY + ".");
                     p.sendMessage("");
                     p.sendMessage(ChatColor.YELLOW + "/ps info members|owners|flags");
                     p.sendMessage(ChatColor.YELLOW + "/ps add|remove {playername}");
@@ -133,20 +133,20 @@ public class Main extends JavaPlugin
                         if (Main.toggleList != null) {
                             if (!Main.toggleList.contains(p.getName())) {
                                 Main.toggleList.add(p.getName());
-                                p.sendMessage(ChatColor.YELLOW + "Устанавливать приваты больше нельзя");
+                                p.sendMessage(ChatColor.YELLOW + "РЈСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РїСЂРёРІР°С‚С‹ Р±РѕР»СЊС€Рµ РЅРµР»СЊР·СЏ");
                             }
                             else {
                                 Main.toggleList.remove(p.getName());
-                                p.sendMessage(ChatColor.YELLOW + "Устанавливать приваты больше теперь можно");
+                                p.sendMessage(ChatColor.YELLOW + "РЈСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РїСЂРёРІР°С‚С‹ Р±РѕР»СЊС€Рµ С‚РµРїРµСЂСЊ РјРѕР¶РЅРѕ");
                             }
                         }
                         else {
                             Main.toggleList.add(p.getName());
-                            p.sendMessage(ChatColor.YELLOW + "Устанавливать приваты больше нельзя");
+                            p.sendMessage(ChatColor.YELLOW + "РЈСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РїСЂРёРІР°С‚С‹ Р±РѕР»СЊС€Рµ РЅРµР»СЊР·СЏ");
                         }
                     }
                     else {
-                        p.sendMessage(ChatColor.RED + "У Вас нет прав!");
+                        p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ!");
                     }
                     return true;
                 }
@@ -187,11 +187,11 @@ public class Main extends JavaPlugin
                 if (rgm.getRegion(id) != null && (rgm.getRegion(id).isOwner(localPlayer) || p.hasPermission("protectionstones.superowner"))) {
                     if (args[0].equalsIgnoreCase("add")) {
                         if (!p.hasPermission("protectionstones.members")) {
-                            p.sendMessage(ChatColor.RED + "У Вас нет прав использовать команды участников привата");
+                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ СѓС‡Р°СЃС‚РЅРёРєРѕРІ РїСЂРёРІР°С‚Р°");
                             return true;
                         }
                         if (args.length < 2) {
-                            p.sendMessage(ChatColor.RED + "Для этой команды необходимо использовать никнейм игрока.");
+                            p.sendMessage(ChatColor.RED + "Р”Р»СЏ СЌС‚РѕР№ РєРѕРјР°РЅРґС‹ РЅРµРѕР±С…РѕРґРёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРёРєРЅРµР№Рј РёРіСЂРѕРєР°.");
                             return true;
                         }
                         final String playerName = args[1];
@@ -206,16 +206,16 @@ public class Main extends JavaPlugin
                             rgm.save();
                         }
                         catch (Exception e) {
-                            System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e + "] во время сохранения файла привата.");
+                            System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                         }
-                        p.sendMessage(ChatColor.YELLOW + playerName + " был добавлен в Ваш приват.");
+                        p.sendMessage(ChatColor.YELLOW + playerName + " Р±С‹Р» РґРѕР±Р°РІР»РµРЅ РІ Р’Р°С€ РїСЂРёРІР°С‚.");
                         return true;
                     }
                     else {
                         if (args[0].equalsIgnoreCase("remove")) {
                             if (p.hasPermission("protectionstones.members")) {
                                 if (args.length < 2) {
-                                    p.sendMessage(ChatColor.RED + "Для выполнения данной команды необходим никнейм игрока!");
+                                    p.sendMessage(ChatColor.RED + "Р”Р»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РґР°РЅРЅРѕР№ РєРѕРјР°РЅРґС‹ РЅРµРѕР±С…РѕРґРёРј РЅРёРєРЅРµР№Рј РёРіСЂРѕРєР°!");
                                     return true;
                                 }
                                 final String playerName = args[1];
@@ -230,22 +230,22 @@ public class Main extends JavaPlugin
                                     rgm.save();
                                 }
                                 catch (Exception e) {
-                                    System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e + "] во время сохранения файла привата.");
+                                    System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                 }
                                 p.sendMessage(ChatColor.YELLOW + playerName + " has been removed from region.");
                             }
                             else {
-                                p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды участников!");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ СѓС‡Р°СЃС‚РЅРёРєРѕРІ!");
                             }
                             return true;
                         }
                         if (args[0].equalsIgnoreCase("addowner")) {
                             if (!p.hasPermission("protectionstones.owners")) {
-                                p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды овнеров!");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ РѕРІРЅРµСЂРѕРІ!");
                                 return true;
                             }
                             if (args.length < 2) {
-                                p.sendMessage(ChatColor.RED + "Для этой команды необходимо использовать никнейм игрока.");
+                                p.sendMessage(ChatColor.RED + "Р”Р»СЏ СЌС‚РѕР№ РєРѕРјР°РЅРґС‹ РЅРµРѕР±С…РѕРґРёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРёРєРЅРµР№Рј РёРіСЂРѕРєР°.");
                                 return true;
                             }
                             final String playerName = args[1];
@@ -260,16 +260,16 @@ public class Main extends JavaPlugin
                                 rgm.save();
                             }
                             catch (Exception e) {
-                                System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e + "] во время сохранения файла привата.");
+                                System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                             }
-                            p.sendMessage(ChatColor.YELLOW + playerName + " был успешно добавлен в Ваш приват!");
+                            p.sendMessage(ChatColor.YELLOW + playerName + " Р±С‹Р» СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ РІ Р’Р°С€ РїСЂРёРІР°С‚!");
                             return true;
                         }
                         else {
                             if (args[0].equalsIgnoreCase("removeowner")) {
                                 if (p.hasPermission("protectionstones.owners")) {
                                     if (args.length < 2) {
-                                        p.sendMessage(ChatColor.RED + "Для этой команды необходимо использовать никнейм игрока.");
+                                        p.sendMessage(ChatColor.RED + "Р”Р»СЏ СЌС‚РѕР№ РєРѕРјР°РЅРґС‹ РЅРµРѕР±С…РѕРґРёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРёРєРЅРµР№Рј РёРіСЂРѕРєР°.");
                                         return true;
                                     }
                                     final String playerName = args[1];
@@ -284,12 +284,12 @@ public class Main extends JavaPlugin
                                         rgm.save();
                                     }
                                     catch (Exception e) {
-                                        System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e + "] во время сохранения файла привата.");
+                                        System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                     }
-                                    p.sendMessage(ChatColor.YELLOW + playerName + " был убран с Вашего привата.");
+                                    p.sendMessage(ChatColor.YELLOW + playerName + " Р±С‹Р» СѓР±СЂР°РЅ СЃ Р’Р°С€РµРіРѕ РїСЂРёРІР°С‚Р°.");
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав использовать команды овнеров привата");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ РѕРІРЅРµСЂРѕРІ РїСЂРёРІР°С‚Р°");
                                 }
                                 return true;
                             }
@@ -365,7 +365,7 @@ public class Main extends JavaPlugin
                                     this.viewTaskList.put((CommandSender)p, taskID);
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ");
                                 }
                                 return true;
                             }
@@ -404,15 +404,15 @@ public class Main extends JavaPlugin
                                             }
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.YELLOW + "Этот приват не скрыт...");
+                                            p.sendMessage(ChatColor.YELLOW + "Р­С‚РѕС‚ РїСЂРёРІР°С‚ РЅРµ СЃРєСЂС‹С‚...");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.YELLOW + "Не приват");
+                                        p.sendMessage(ChatColor.YELLOW + "РќРµ РїСЂРёРІР°С‚");
                                     }
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ");
                                 }
                                 return true;
                             }
@@ -441,15 +441,15 @@ public class Main extends JavaPlugin
                                             blockToHide.setType(Material.AIR);
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.YELLOW + "Приват уже скрыт.");
+                                            p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚ СѓР¶Рµ СЃРєСЂС‹С‚.");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.YELLOW + "Не приват");
+                                        p.sendMessage(ChatColor.YELLOW + "РќРµ РїСЂРёРІР°С‚");
                                     }
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ");
                                 }
                                 return true;
                             }
@@ -466,12 +466,12 @@ public class Main extends JavaPlugin
                                         rgm.save();
                                     }
                                     catch (Exception e2) {
-                                        System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e2 + "] во время сохранения файла привата.");
+                                        System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e2 + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                     }
-                                    p.sendMessage(ChatColor.YELLOW + "Приоритет был установлен.");
+                                    p.sendMessage(ChatColor.YELLOW + "РџСЂРёРѕСЂРёС‚РµС‚ Р±С‹Р» СѓСЃС‚Р°РЅРѕРІР»РµРЅ.");
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать приоритеты привата");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРѕСЂРёС‚РµС‚С‹ РїСЂРёРІР°С‚Р°");
                                 }
                                 return true;
                             }
@@ -483,15 +483,15 @@ public class Main extends JavaPlugin
                                             fh.setFlag(args, rgm.getRegion(id), p);
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.RED + "У Вас нет прав устанавливать данный флаг");
+                                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РґР°РЅРЅС‹Р№ С„Р»Р°Рі");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.RED + "Используй:  /ps flag {flagname} {flagvalue}");
+                                        p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·СѓР№:  /ps flag {flagname} {flagvalue}");
                                     }
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать флаги привата");
+                                    p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С„Р»Р°РіРё РїСЂРёРІР°С‚Р°");
                                 }
                                 return true;
                             }
@@ -502,7 +502,7 @@ public class Main extends JavaPlugin
                                             final ProtectedRegion region = rgm.getRegion(id);
                                             if (region != null) {
                                                 p.sendMessage(ChatColor.GRAY + "================ PS Info ================");
-                                                p.sendMessage(ChatColor.BLUE + "Приват:" + ChatColor.YELLOW + id + ChatColor.BLUE + ", Приоритет: " + ChatColor.YELLOW + rgm.getRegion(id).getPriority());
+                                                p.sendMessage(ChatColor.BLUE + "РџСЂРёРІР°С‚:" + ChatColor.YELLOW + id + ChatColor.BLUE + ", РџСЂРёРѕСЂРёС‚РµС‚: " + ChatColor.YELLOW + rgm.getRegion(id).getPriority());
                                                 String myFlag = "";
                                                 String myFlagValue = "";
                                                 for (int n = DefaultFlag.flagsList.length, i = 0; i < n; ++i) {
@@ -524,42 +524,42 @@ public class Main extends JavaPlugin
                                                 }
                                                 if (myFlag.length() > 2) {
                                                     myFlag = String.valueOf(myFlag.substring(0, myFlag.length() - 2)) + ".";
-                                                    p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.YELLOW + myFlag);
+                                                    p.sendMessage(ChatColor.BLUE + "Р¤Р»Р°РіРё: " + ChatColor.YELLOW + myFlag);
                                                 }
                                                 else {
-                                                    p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.RED + "(none)");
+                                                    p.sendMessage(ChatColor.BLUE + "Р¤Р»Р°РіРё: " + ChatColor.RED + "(none)");
                                                 }
                                                 final DefaultDomain owners2 = region.getOwners();
                                                 String ownerNames = owners2.getPlayers().toString();
                                                 if (ownerNames != "[]") {
                                                     ownerNames = ownerNames.substring(1, ownerNames.length() - 1);
-                                                    p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.YELLOW + ownerNames);
+                                                    p.sendMessage(ChatColor.BLUE + "РћРІРЅРµСЂС‹: " + ChatColor.YELLOW + ownerNames);
                                                 }
                                                 else {
-                                                    p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.RED + "(no owners)");
+                                                    p.sendMessage(ChatColor.BLUE + "РћРІРЅРµСЂС‹: " + ChatColor.RED + "(no owners)");
                                                 }
                                                 final DefaultDomain members2 = region.getMembers();
                                                 String memberNames = members2.getPlayers().toString();
                                                 if (memberNames != "[]") {
                                                     memberNames = memberNames.substring(1, memberNames.length() - 1);
-                                                    p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.YELLOW + memberNames);
+                                                    p.sendMessage(ChatColor.BLUE + "РЈС‡Р°СЃС‚РЅРёРєРё: " + ChatColor.YELLOW + memberNames);
                                                 }
                                                 else {
-                                                    p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.RED + "(no members)");
+                                                    p.sendMessage(ChatColor.BLUE + "РЈС‡Р°СЃС‚РЅРёРєРё: " + ChatColor.RED + "(no members)");
                                                 }
                                                 final BlockVector min = region.getMinimumPoint();
                                                 final BlockVector max = region.getMaximumPoint();
-                                                p.sendMessage(ChatColor.BLUE + "Границы: " + ChatColor.YELLOW + "(" + min.getBlockX() + "," + min.getBlockY() + "," + min.getBlockZ() + ") -> (" + max.getBlockX() + "," + max.getBlockY() + "," + max.getBlockZ() + ")");
+                                                p.sendMessage(ChatColor.BLUE + "Р“СЂР°РЅРёС†С‹: " + ChatColor.YELLOW + "(" + min.getBlockX() + "," + min.getBlockY() + "," + min.getBlockZ() + ") -> (" + max.getBlockX() + "," + max.getBlockY() + "," + max.getBlockZ() + ")");
                                                 return true;
                                             }
-                                            p.sendMessage(ChatColor.YELLOW + "Регион не существует");
+                                            p.sendMessage(ChatColor.YELLOW + "Р РµРіРёРѕРЅ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.YELLOW + "Не найдено ни одного региона");
+                                            p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РЅРё РѕРґРЅРѕРіРѕ СЂРµРіРёРѕРЅР°");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.RED + "У Вас нет прав использовать команду получения информации о привате");
+                                        p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґСѓ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂРёРІР°С‚Рµ");
                                     }
                                 }
                                 else if (args.length == 2) {
@@ -569,14 +569,14 @@ public class Main extends JavaPlugin
                                             String memberNames2 = members3.getPlayers().toString();
                                             if (memberNames2 != "[]") {
                                                 memberNames2 = memberNames2.substring(1, memberNames2.length() - 1);
-                                                p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.YELLOW + memberNames2);
+                                                p.sendMessage(ChatColor.BLUE + "РЈС‡Р°СЃС‚РЅРёРєРё: " + ChatColor.YELLOW + memberNames2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.RED + "(no members)");
+                                                p.sendMessage(ChatColor.BLUE + "РЈС‡Р°СЃС‚РЅРёРєРё: " + ChatColor.RED + "(no members)");
                                             }
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды участников привата");
+                                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ СѓС‡Р°СЃС‚РЅРёРєРѕРІ РїСЂРёРІР°С‚Р°");
                                         }
                                     }
                                     else if (args[1].equalsIgnoreCase("owners")) {
@@ -585,14 +585,14 @@ public class Main extends JavaPlugin
                                             String ownerNames2 = owners3.getPlayers().toString();
                                             if (ownerNames2 != "[]") {
                                                 ownerNames2 = ownerNames2.substring(1, ownerNames2.length() - 1);
-                                                p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.YELLOW + ownerNames2);
+                                                p.sendMessage(ChatColor.BLUE + "РћРІРЅРµСЂС‹: " + ChatColor.YELLOW + ownerNames2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.RED + "(no owners)");
+                                                p.sendMessage(ChatColor.BLUE + "РћРІРЅРµСЂС‹: " + ChatColor.RED + "(no owners)");
                                             }
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды овнеров привата");
+                                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ РѕРІРЅРµСЂРѕРІ РїСЂРёРІР°С‚Р°");
                                         }
                                     }
                                     else if (args[1].equalsIgnoreCase("flags")) {
@@ -608,22 +608,22 @@ public class Main extends JavaPlugin
                                             }
                                             if (myFlag2.length() > 2) {
                                                 myFlag2 = String.valueOf(myFlag2.substring(0, myFlag2.length() - 2)) + ".";
-                                                p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.YELLOW + myFlag2);
+                                                p.sendMessage(ChatColor.BLUE + "Р¤Р»Р°РіРё: " + ChatColor.YELLOW + myFlag2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.RED + "(none)");
+                                                p.sendMessage(ChatColor.BLUE + "Р¤Р»Р°РіРё: " + ChatColor.RED + "(none)");
                                             }
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды для флагов привата");
+                                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ РґР»СЏ С„Р»Р°РіРѕРІ РїСЂРёРІР°С‚Р°");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.RED + "Используй:  /ps info members|owners|flags");
+                                        p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·СѓР№:  /ps info members|owners|flags");
                                     }
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.RED + "Используй:  /ps info members|owners|flags");
+                                    p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·СѓР№:  /ps info members|owners|flags");
                                 }
                                 return true;
                             }
@@ -636,7 +636,7 @@ public class Main extends JavaPlugin
                     UUID playerid = null;
                     if (args.length == 1) {
                         if (!p.hasPermission("protectionstones.count")) {
-                            p.sendMessage(ChatColor.RED + "У Вас нет прав!");
+                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ!");
                         }
                         playerName2 = wg.wrapPlayer(p).getName();
                         if (Main.uuid) {
@@ -660,12 +660,12 @@ public class Main extends JavaPlugin
                             }
                         }
                         catch (Exception ex4) {}
-                        p.sendMessage(ChatColor.YELLOW + "Количество твоих приватов: " + count);
+                        p.sendMessage(ChatColor.YELLOW + "РљРѕР»РёС‡РµСЃС‚РІРѕ С‚РІРѕРёС… РїСЂРёРІР°С‚РѕРІ: " + count);
                         return true;
                     }
                     if (args.length == 2) {
                         if (!p.hasPermission("protectionstones.count.others")) {
-                            p.sendMessage(ChatColor.RED + "У Вас нет прав!");
+                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ!");
                         }
                         playerName2 = wg.wrapOfflinePlayer(Bukkit.getOfflinePlayer(args[1])).getName();
                         if (Main.uuid) {
@@ -689,10 +689,10 @@ public class Main extends JavaPlugin
                             }
                         }
                         catch (Exception ex5) {}
-                        p.sendMessage(ChatColor.YELLOW + "Количество приватов " + args[1] + ": " + count);
+                        p.sendMessage(ChatColor.YELLOW + "РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРёРІР°С‚РѕРІ " + args[1] + ": " + count);
                         return true;
                     }
-                    p.sendMessage(ChatColor.RED + "Использование: /ps count, /ps count [player]");
+                    p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: /ps count, /ps count [player]");
                     return true;
                 }
                 else {
@@ -731,7 +731,7 @@ public class Main extends JavaPlugin
                                     }
                                 }
                                 catch (Exception ex6) {}
-                                p.sendMessage(ChatColor.YELLOW + "Количество приватов игрока " + args[2] + ": " + count2);
+                                p.sendMessage(ChatColor.YELLOW + "РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРёРІР°С‚РѕРІ РёРіСЂРѕРєР° " + args[2] + ": " + count2);
                                 return true;
                             }
                             if (args[1].equalsIgnoreCase("list")) {
@@ -770,11 +770,11 @@ public class Main extends JavaPlugin
                                     catch (Exception ex7) {}
                                 }
                                 if (index == 0) {
-                                    p.sendMessage(ChatColor.YELLOW + "Не найдено приватов для " + name);
+                                    p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РїСЂРёРІР°С‚РѕРІ РґР»СЏ " + name);
                                 }
                                 else {
                                     regionMessage = String.valueOf(regionMessage.substring(0, regionMessage.length() - 2)) + ".";
-                                    p.sendMessage(ChatColor.YELLOW + "Приваты игрока " + args[2] + ": " + regionMessage);
+                                    p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚С‹ РёРіСЂРѕРєР° " + args[2] + ": " + regionMessage);
                                 }
                                 return true;
                             }
@@ -812,7 +812,7 @@ public class Main extends JavaPlugin
                                     catch (Exception ex8) {}
                                 }
                                 if (index2 == 0) {
-                                    p.sendMessage(ChatColor.YELLOW + "Не найдено приватов для " + args[2]);
+                                    p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РїСЂРёРІР°С‚РѕРІ РґР»СЏ " + args[2]);
                                 }
                                 else {
                                     for (int k = 0; k < index2; ++k) {
@@ -827,7 +827,7 @@ public class Main extends JavaPlugin
                                         else {
                                             if (args[1].equalsIgnoreCase("regen")) {
                                                 if (this.getServer().getPluginManager().getPlugin("WorldEdit") != null) {
-                                                    Bukkit.dispatchCommand((CommandSender)p, "приват выбран " + regionIDList[k]);
+                                                    Bukkit.dispatchCommand((CommandSender)p, "РїСЂРёРІР°С‚ РІС‹Р±СЂР°РЅ " + regionIDList[k]);
                                                     Bukkit.dispatchCommand((CommandSender)p, "/regen");
                                                 }
                                             }
@@ -844,19 +844,19 @@ public class Main extends JavaPlugin
                                             mgr.removeRegion(regionIDList[k]);
                                         }
                                     }
-                                    p.sendMessage(ChatColor.YELLOW + "Приваты " + name + " были убраны.");
+                                    p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚С‹ " + name + " Р±С‹Р»Рё СѓР±СЂР°РЅС‹.");
                                     try {
                                         rgm.save();
                                     }
                                     catch (Exception e3) {
-                                        System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e3 + "] во время сохранения файла привата.");
+                                        System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e3 + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                     }
                                 }
                                 return true;
                             }
                         }
                         else {
-                            p.sendMessage(ChatColor.RED + "У Вас нет прав использовать команды для своего привата.");
+                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґС‹ РґР»СЏ СЃРІРѕРµРіРѕ РїСЂРёРІР°С‚Р°.");
                         }
                     }
                     if ((args[0].equalsIgnoreCase("tp") && p.hasPermission("protectionstones.tp")) || (args[0].equalsIgnoreCase("home") && p.hasPermission("protectionstones.home"))) {
@@ -867,15 +867,15 @@ public class Main extends JavaPlugin
                         final Map<Integer, String> playerRegions = new HashMap<Integer, String>();
                         if (args[0].equalsIgnoreCase("tp")) {
                             if (args.length != 3) {
-                                p.sendMessage(ChatColor.RED + "Использование: /ps tp [player] [num]");
+                                p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: /ps tp [player] [num]");
                                 return true;
                             }
                             rgnum = Integer.parseInt(args[2]);
                         }
                         else {
                             if (args.length != 2) {
-                                p.sendMessage(ChatColor.RED + "Использование: /ps home [num]");
-                                p.sendMessage(ChatColor.YELLOW + "Чтобы узнать количество Ваших приватов, введите /ps count. Используйте любое число в пределах диапазона, чтобы телепортироваться на этот приват");
+                                p.sendMessage(ChatColor.RED + "РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: /ps home [num]");
+                                p.sendMessage(ChatColor.YELLOW + "Р§С‚РѕР±С‹ СѓР·РЅР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ Р’Р°С€РёС… РїСЂРёРІР°С‚РѕРІ, РІРІРµРґРёС‚Рµ /ps count. РСЃРїРѕР»СЊР·СѓР№С‚Рµ Р»СЋР±РѕРµ С‡РёСЃР»Рѕ РІ РїСЂРµРґРµР»Р°С… РґРёР°РїР°Р·РѕРЅР°, С‡С‚РѕР±С‹ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊСЃСЏ РЅР° СЌС‚РѕС‚ РїСЂРёРІР°С‚");
                                 return true;
                             }
                             rgnum = Integer.parseInt(args[1]);
@@ -911,43 +911,43 @@ public class Main extends JavaPlugin
                                 lp = wg.wrapOfflinePlayer(Bukkit.getOfflinePlayer(args[1]));
                             }
                             catch (Exception e4) {
-                                p.sendMessage(ChatColor.RED + "Ошибка при поиске приватов игрока " + args[1] + ". Пожалуйста проверьте вписанный Вами никнейм.");
+                                p.sendMessage(ChatColor.RED + "РћС€РёР±РєР° РїСЂРё РїРѕРёСЃРєРµ РїСЂРёРІР°С‚РѕРІ РёРіСЂРѕРєР° " + args[1] + ". РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїСЂРѕРІРµСЂСЊС‚Рµ РІРїРёСЃР°РЅРЅС‹Р№ Р’Р°РјРё РЅРёРєРЅРµР№Рј.");
                                 return true;
                             }
                             if (rgnum <= 0) {
-                                p.sendMessage(ChatColor.RED + "Пожалуйста введите число больше 0.");
+                                p.sendMessage(ChatColor.RED + "РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ 0.");
                                 return true;
                             }
                             if (index3 <= 0) {
-                                p.sendMessage(ChatColor.RED + lp.getName() + " не имеет ни одного привата!");
+                                p.sendMessage(ChatColor.RED + lp.getName() + " РЅРµ РёРјРµРµС‚ РЅРё РѕРґРЅРѕРіРѕ РїСЂРёРІР°С‚Р°!");
                                 return true;
                             }
                             if (rgnum > index3) {
-                                p.sendMessage(ChatColor.RED + lp.getName() + " имеет только " + index3 + " приватов!");
+                                p.sendMessage(ChatColor.RED + lp.getName() + " РёРјРµРµС‚ С‚РѕР»СЊРєРѕ " + index3 + " РїСЂРёРІР°С‚РѕРІ!");
                                 return true;
                             }
                         }
                         else {
                             if (!args[0].equalsIgnoreCase("home")) {
-                                p.sendMessage(ChatColor.RED + "У Вас нет прав.");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ.");
                                 return true;
                             }
                             try {
                                 wg.wrapPlayer(p);
                             }
                             catch (Exception e7) {
-                                p.sendMessage(ChatColor.RED + "Ошибка при поиске ваших приватов.");
+                                p.sendMessage(ChatColor.RED + "РћС€РёР±РєР° РїСЂРё РїРѕРёСЃРєРµ РІР°С€РёС… РїСЂРёРІР°С‚РѕРІ.");
                                 return true;
                             }
                             if (rgnum <= 0) {
-                                p.sendMessage(ChatColor.RED + "Пожалуйста введите число больше 0.");
+                                p.sendMessage(ChatColor.RED + "РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ 0.");
                                 return true;
                             }
                             if (index3 <= 0) {
-                                p.sendMessage(ChatColor.RED + "У Вас нет ни одного привата!");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РЅРё РѕРґРЅРѕРіРѕ РїСЂРёРІР°С‚Р°!");
                             }
                             if (rgnum > index3) {
-                                p.sendMessage(ChatColor.RED + "У Вас  есть только " + index3 + " приватов!");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ  РµСЃС‚СЊ С‚РѕР»СЊРєРѕ " + index3 + " РїСЂРёРІР°С‚РѕРІ!");
                                 return true;
                             }
                         }
@@ -958,7 +958,7 @@ public class Main extends JavaPlugin
                             System.out.print(pos.toString());
                             if (pos.length == 3) {
                                 pos[0] = pos[0].substring(2);
-                                p.sendMessage(ChatColor.GREEN + "Телепортируем...");
+                                p.sendMessage(ChatColor.GREEN + "РўРµР»РµРїРѕСЂС‚РёСЂСѓРµРј...");
                                 final int tpx = Integer.parseInt(pos[0]);
                                 final int tpy = Integer.parseInt(pos[1]);
                                 final int tpz = Integer.parseInt(pos[2]);
@@ -966,18 +966,18 @@ public class Main extends JavaPlugin
                                 p.teleport(tploc);
                             }
                             else {
-                                p.sendMessage(ChatColor.RED + "Ошибка при телепортации в защищенный приват!");
+                                p.sendMessage(ChatColor.RED + "РћС€РёР±РєР° РїСЂРё С‚РµР»РµРїРѕСЂС‚Р°С†РёРё РІ Р·Р°С‰РёС‰РµРЅРЅС‹Р№ РїСЂРёРІР°С‚!");
                             }
                             return true;
                         }
-                        p.sendMessage(ChatColor.RED + "Ошибка в поиске привата для телепортации!");
+                        p.sendMessage(ChatColor.RED + "РћС€РёР±РєР° РІ РїРѕРёСЃРєРµ РїСЂРёРІР°С‚Р° РґР»СЏ С‚РµР»РµРїРѕСЂС‚Р°С†РёРё!");
                     }
                     else if (args[0].equalsIgnoreCase("admin")) {
                         if (!p.hasPermission("protectionstones.admin")) {
-                            p.sendMessage(ChatColor.RED + "У Вас нет прав.");
+                            p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ.");
                         }
                         else if (args.length < 2) {
-                            p.sendMessage(ChatColor.RED + "Правильное Использование: /ps admin {version|settings|hide|unhide|");
+                            p.sendMessage(ChatColor.RED + "РџСЂР°РІРёР»СЊРЅРѕРµ РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ: /ps admin {version|settings|hide|unhide|");
                             p.sendMessage(ChatColor.RED + "                          cleanup|lastlogon|lastlogons|stats}");
                         }
                         else if (args.length > 1) {
@@ -992,12 +992,12 @@ public class Main extends JavaPlugin
                                 final RegionManager mgr = wg.getRegionManager(p.getWorld());
                                 final Map<String, ProtectedRegion> regions3 = (Map<String, ProtectedRegion>)mgr.getRegions();
                                 if (regions3.isEmpty()) {
-                                    p.sendMessage(ChatColor.YELLOW + "Не найдено приватов ProtectionStones");
+                                    p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РїСЂРёРІР°С‚РѕРІ ProtectionStones");
                                 }
                                 final int regionSize = regions3.size();
                                 final String[] regionIDList2 = new String[regionSize];
                                 String blockMaterial = "AIR";
-                                String hMessage = "скрыты";
+                                String hMessage = "СЃРєСЂС‹С‚С‹";
                                 int index2 = 0;
                                 for (final String idname2 : regions3.keySet()) {
                                     try {
@@ -1010,7 +1010,7 @@ public class Main extends JavaPlugin
                                     catch (Exception ex10) {}
                                 }
                                 if (index2 == 0) {
-                                    p.sendMessage(ChatColor.YELLOW + "Не найдено приватов ProtectionStones");
+                                    p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РїСЂРёРІР°С‚РѕРІ ProtectionStones");
                                 }
                                 else {
                                     for (int k = 0; k < index2; ++k) {
@@ -1064,9 +1064,9 @@ public class Main extends JavaPlugin
                                     }
                                 }
                                 if (args[1].equalsIgnoreCase("unhide")) {
-                                    hMessage = "показаны";
+                                    hMessage = "РїРѕРєР°Р·Р°РЅС‹";
                                 }
-                                p.sendMessage(ChatColor.YELLOW + "Все ProtectionStones были " + hMessage);
+                                p.sendMessage(ChatColor.YELLOW + "Р’СЃРµ ProtectionStones Р±С‹Р»Рё " + hMessage);
                             }
                             else if (args[1].equalsIgnoreCase("cleanup")) {
                                 if (args.length < 3) {
@@ -1078,7 +1078,7 @@ public class Main extends JavaPlugin
                                     if (args.length > 3) {
                                         days = Integer.parseInt(args[3]);
                                     }
-                                    p.sendMessage(ChatColor.YELLOW + "Очистка " + args[2] + " " + days + " days");
+                                    p.sendMessage(ChatColor.YELLOW + "РћС‡РёСЃС‚РєР° " + args[2] + " " + days + " days");
                                     p.sendMessage(ChatColor.YELLOW + "================");
                                     final RegionManager mgr2 = wg.getRegionManager(p.getWorld());
                                     final Map<String, ProtectedRegion> regions = (Map<String, ProtectedRegion>)mgr2.getRegions();
@@ -1103,7 +1103,7 @@ public class Main extends JavaPlugin
                                                 catch (Exception ex11) {}
                                             }
                                             if (index4 == 0) {
-                                                p.sendMessage(ChatColor.YELLOW + "Не найдено приватов для " + name3);
+                                                p.sendMessage(ChatColor.YELLOW + "РќРµ РЅР°Р№РґРµРЅРѕ РїСЂРёРІР°С‚РѕРІ РґР»СЏ " + name3);
                                             }
                                             else {
                                                 p.sendMessage(ChatColor.YELLOW + args[2] + ": " + name3);
@@ -1140,33 +1140,33 @@ public class Main extends JavaPlugin
                                         rgm.save();
                                     }
                                     catch (Exception e4) {
-                                        System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e4 + "] во время сохранения файла привата.");
+                                        System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e4 + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                     }
                                     p.sendMessage(ChatColor.YELLOW + "================");
-                                    p.sendMessage(ChatColor.YELLOW + "Очистка " + args[2] + " закончена");
+                                    p.sendMessage(ChatColor.YELLOW + "РћС‡РёСЃС‚РєР° " + args[2] + " Р·Р°РєРѕРЅС‡РµРЅР°");
                                     return true;
                                 }
                             }
                             else if (args[1].equalsIgnoreCase("lastlogon")) {
-                                System.out.print("ProtectionStones // Последние заходы // debug #0");
+                                System.out.print("ProtectionStones // РџРѕСЃР»РµРґРЅРёРµ Р·Р°С…РѕРґС‹ // debug #0");
                                 if (args.length > 2) {
                                     final String playerName2 = args[2];
-                                    System.out.print("ProtectionStones // Последние заходы // debug #1");
+                                    System.out.print("ProtectionStones // РџРѕСЃР»РµРґРЅРёРµ Р·Р°С…РѕРґС‹ // debug #1");
                                     if (Bukkit.getOfflinePlayer(playerName2).getFirstPlayed() > 0L) {
                                         System.out.print("ProtectionStones LastLogon debug #2");
                                         final long lastPlayed2 = (System.currentTimeMillis() - Bukkit.getOfflinePlayer(playerName2).getLastPlayed()) / 86400000L;
-                                        p.sendMessage(ChatColor.YELLOW + playerName2 + " последний раз играл " + lastPlayed2 + " дней назад");
+                                        p.sendMessage(ChatColor.YELLOW + playerName2 + " РїРѕСЃР»РµРґРЅРёР№ СЂР°Р· РёРіСЂР°Р» " + lastPlayed2 + " РґРЅРµР№ РЅР°Р·Р°Рґ");
                                         if (Bukkit.getOfflinePlayer(playerName2).isBanned()) {
-                                            System.out.print("ProtectionStones // Последние заходы // debug #3");
-                                            p.sendMessage(ChatColor.YELLOW + playerName2 + " заблокирован");
+                                            System.out.print("ProtectionStones // РџРѕСЃР»РµРґРЅРёРµ Р·Р°С…РѕРґС‹ // debug #3");
+                                            p.sendMessage(ChatColor.YELLOW + playerName2 + " Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.YELLOW + "Игрок не найден.");
+                                        p.sendMessage(ChatColor.YELLOW + "РРіСЂРѕРє РЅРµ РЅР°Р№РґРµРЅ.");
                                     }
                                 }
                                 else {
-                                    p.sendMessage(ChatColor.YELLOW + "Необходимо имя игрока.");
+                                    p.sendMessage(ChatColor.YELLOW + "РќРµРѕР±С…РѕРґРёРјРѕ РёРјСЏ РёРіСЂРѕРєР°.");
                                 }
                             }
                             else if (args[1].equalsIgnoreCase("lastlogons")) {
@@ -1177,19 +1177,19 @@ public class Main extends JavaPlugin
                                 final OfflinePlayer[] offlinePlayerList2 = this.getServer().getOfflinePlayers();
                                 final int playerCount3 = offlinePlayerList2.length;
                                 int playerCounter = 0;
-                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(days).append(" Дней Плюс:").toString());
+                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(days).append(" Р”РЅРµР№ РџР»СЋСЃ:").toString());
                                 p.sendMessage(ChatColor.YELLOW + "================");
                                 Arrays.sort(offlinePlayerList2, new PlayerComparator());
                                 for (int iii2 = 0; iii2 < playerCount3; ++iii2) {
                                     final long lastPlayed3 = (System.currentTimeMillis() - offlinePlayerList2[iii2].getLastPlayed()) / 86400000L;
                                     if (lastPlayed3 >= days) {
                                         ++playerCounter;
-                                        p.sendMessage(ChatColor.YELLOW + offlinePlayerList2[iii2].getName() + " " + lastPlayed3 + " дней");
+                                        p.sendMessage(ChatColor.YELLOW + offlinePlayerList2[iii2].getName() + " " + lastPlayed3 + " РґРЅРµР№");
                                     }
                                 }
                                 p.sendMessage(ChatColor.YELLOW + "================");
-                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(playerCounter).append(" Всего игроков показано").toString());
-                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(playerCount3).append(" Всего игроков проверено").toString());
+                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(playerCounter).append(" Р’СЃРµРіРѕ РёРіСЂРѕРєРѕРІ РїРѕРєР°Р·Р°РЅРѕ").toString());
+                                p.sendMessage(new StringBuilder().append(ChatColor.YELLOW).append(playerCount3).append(" Р’СЃРµРіРѕ РёРіСЂРѕРєРѕРІ РїСЂРѕРІРµСЂРµРЅРѕ").toString());
                             }
                             else if (args[1].equalsIgnoreCase("stats")) {
                                 if (args.length > 2) {
@@ -1198,12 +1198,12 @@ public class Main extends JavaPlugin
                                         p.sendMessage(ChatColor.YELLOW + playerName2 + ":");
                                         p.sendMessage(ChatColor.YELLOW + "================");
                                         final long firstPlayed = (System.currentTimeMillis() - Bukkit.getOfflinePlayer(playerName2).getFirstPlayed()) / 86400000L;
-                                        p.sendMessage(ChatColor.YELLOW + "Первый раз играл " + firstPlayed + " дней назад.");
+                                        p.sendMessage(ChatColor.YELLOW + "РџРµСЂРІС‹Р№ СЂР°Р· РёРіСЂР°Р» " + firstPlayed + " РґРЅРµР№ РЅР°Р·Р°Рґ.");
                                         final long lastPlayed4 = (System.currentTimeMillis() - Bukkit.getOfflinePlayer(playerName2).getLastPlayed()) / 86400000L;
-                                        p.sendMessage(ChatColor.YELLOW + "Последний раз играл " + lastPlayed4 + " дней назад.");
-                                        String banMessage = "Не заблокирован";
+                                        p.sendMessage(ChatColor.YELLOW + "РџРѕСЃР»РµРґРЅРёР№ СЂР°Р· РёРіСЂР°Р» " + lastPlayed4 + " РґРЅРµР№ РЅР°Р·Р°Рґ.");
+                                        String banMessage = "РќРµ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ";
                                         if (Bukkit.getOfflinePlayer(playerName2).isBanned()) {
-                                            banMessage = "Заблокирован";
+                                            banMessage = "Р—Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ";
                                         }
                                         p.sendMessage(ChatColor.YELLOW + banMessage);
                                         int count3 = 0;
@@ -1213,22 +1213,22 @@ public class Main extends JavaPlugin
                                             count3 = rgm.getRegionCountOfPlayer(thePlayer);
                                         }
                                         catch (Exception ex12) {}
-                                        p.sendMessage(ChatColor.YELLOW + "Приваты " + count3);
+                                        p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚С‹ " + count3);
                                         p.sendMessage(ChatColor.YELLOW + "================");
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.YELLOW + "Игрок не найден.");
+                                        p.sendMessage(ChatColor.YELLOW + "РРіСЂРѕРє РЅРµ РЅР°Р№РґРµРЅ.");
                                     }
                                     return true;
                                 }
-                                p.sendMessage(ChatColor.YELLOW + "Мир:");
+                                p.sendMessage(ChatColor.YELLOW + "РњРёСЂ:");
                                 p.sendMessage(ChatColor.YELLOW + "================");
                                 int count4 = 0;
                                 try {
                                     count4 = rgm.size();
                                 }
                                 catch (Exception ex13) {}
-                                p.sendMessage(ChatColor.YELLOW + "Приваты: " + count4);
+                                p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚С‹: " + count4);
                                 p.sendMessage(ChatColor.YELLOW + "================");
                             }
                         }
@@ -1329,12 +1329,12 @@ public class Main extends JavaPlugin
                                                         rgm.save();
                                                     }
                                                     catch (Exception e5) {
-                                                        System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e5 + "] во время сохранения файла привата.");
+                                                        System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e5 + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                                     }
-                                                    p.sendMessage(ChatColor.YELLOW + "Приват был успешно убран!");
+                                                    p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚ Р±С‹Р» СѓСЃРїРµС€РЅРѕ СѓР±СЂР°РЅ!");
                                                 }
                                                 else {
-                                                    p.sendMessage(ChatColor.RED + "Ваш инвентарь заполнен! Освободите пару лишних слотов.");
+                                                    p.sendMessage(ChatColor.RED + "Р’Р°С€ РёРЅРІРµРЅС‚Р°СЂСЊ Р·Р°РїРѕР»РЅРµРЅ! РћСЃРІРѕР±РѕРґРёС‚Рµ РїР°СЂСѓ Р»РёС€РЅРёС… СЃР»РѕС‚РѕРІ.");
                                                 }
                                             }
                                             else {
@@ -1344,32 +1344,32 @@ public class Main extends JavaPlugin
                                                     rgm.save();
                                                 }
                                                 catch (Exception e6) {
-                                                    System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e6 + "] во время сохранения файла привата.");
+                                                    System.out.println("[ProtectionStones] РћС€РёР±РєР° WorldGuard [" + e6 + "] РІРѕ РІСЂРµРјСЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С„Р°Р№Р»Р° РїСЂРёРІР°С‚Р°.");
                                                 }
-                                                p.sendMessage(ChatColor.YELLOW + "Приват был успешно убран!");
+                                                p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚ Р±С‹Р» СѓСЃРїРµС€РЅРѕ СѓР±СЂР°РЅ!");
                                             }
                                         }
                                         else {
-                                            p.sendMessage(ChatColor.YELLOW + "Вы не являетесь овнером данного привата.");
+                                            p.sendMessage(ChatColor.YELLOW + "Р’С‹ РЅРµ СЏРІР»СЏРµС‚РµСЃСЊ РѕРІРЅРµСЂРѕРј РґР°РЅРЅРѕРіРѕ РїСЂРёРІР°С‚Р°.");
                                         }
                                     }
                                     else {
-                                        p.sendMessage(ChatColor.YELLOW + "Приват не является приватом плагина ProtectionStones.");
+                                        p.sendMessage(ChatColor.YELLOW + "РџСЂРёРІР°С‚ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёРІР°С‚РѕРј РїР»Р°РіРёРЅР° ProtectionStones.");
                                     }
                                 }
                             }
                             else {
-                                p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать Reclaim команду.");
+                                p.sendMessage(ChatColor.RED + "РЈ Р’Р°СЃ РЅРµС‚ РїСЂР°РІ, С‡С‚РѕР±С‹ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Reclaim РєРѕРјР°РЅРґСѓ.");
                             }
                             return true;
                         }
-                        p.sendMessage(ChatColor.RED + "Неизвестная команда. Используйте /ps help, чтобы получить больше информации.");
+                        p.sendMessage(ChatColor.RED + "РќРµРёР·РІРµСЃС‚РЅР°СЏ РєРѕРјР°РЅРґР°. РСЃРїРѕР»СЊР·СѓР№С‚Рµ /ps help, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ Р±РѕР»СЊС€Рµ РёРЅС„РѕСЂРјР°С†РёРё.");
                     }
                 }
             }
         }
         else {
-            s.sendMessage(ChatColor.RED + "PS не может быть использован в консоли :(");
+            s.sendMessage(ChatColor.RED + "PS РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РІ РєРѕРЅСЃРѕР»Рё :(");
         }
         return true;
     }
