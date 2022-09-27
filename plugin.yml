@@ -1,0 +1,19 @@
+name: ProtectionStones
+version: 1.0
+description: Samopis.jar
+author: itzHiti
+
+depend: [WorldGuard, WorldEdit]
+main: hiti.main.Main
+
+commands:
+  ps:
+    description: Плагин для защиты вашего региона, но это не точно.
+    aliases: [protectionstone, protectionstones, pstone]
+    usage: /ps help
+    
+#### PROTECTION STONES ####
+# Да, я просто переписал плагин от Vik1395 и Dragoboss'а.
+# Но, теперь он более адаптирован под анархию.
+# Связь со мной (VK): https://vk.com/hitioff
+#### ####
