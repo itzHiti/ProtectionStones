@@ -137,7 +137,7 @@ public class Main extends JavaPlugin
                             }
                             else {
                                 Main.toggleList.remove(p.getName());
-                                p.sendMessage(ChatColor.YELLOW + "Устанавливать приваты больше теперь можно");
+                                p.sendMessage(ChatColor.YELLOW + "Теперь можно устанавливать приваты");
                             }
                         }
                         else {
@@ -232,7 +232,7 @@ public class Main extends JavaPlugin
                                 catch (Exception e) {
                                     System.out.println("[ProtectionStones] Ошибка WorldGuard [" + e + "] во время сохранения файла привата.");
                                 }
-                                p.sendMessage(ChatColor.YELLOW + playerName + " has been removed from region.");
+                                p.sendMessage(ChatColor.YELLOW + playerName + " был убран с Вашего привата.");
                             }
                             else {
                                 p.sendMessage(ChatColor.RED + "У Вас нет прав, чтобы использовать команды участников!");
@@ -501,7 +501,7 @@ public class Main extends JavaPlugin
                                         if (id != "") {
                                             final ProtectedRegion region = rgm.getRegion(id);
                                             if (region != null) {
-                                                p.sendMessage(ChatColor.GRAY + "================ PS Info ================");
+                                                p.sendMessage(ChatColor.GRAY + "================ Информация по привату ================");
                                                 p.sendMessage(ChatColor.BLUE + "Приват:" + ChatColor.YELLOW + id + ChatColor.BLUE + ", Приоритет: " + ChatColor.YELLOW + rgm.getRegion(id).getPriority());
                                                 String myFlag = "";
                                                 String myFlagValue = "";
@@ -572,7 +572,7 @@ public class Main extends JavaPlugin
                                                 p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.YELLOW + memberNames2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.RED + "(no members)");
+                                                p.sendMessage(ChatColor.BLUE + "Участники: " + ChatColor.RED + "(нет)");
                                             }
                                         }
                                         else {
@@ -588,7 +588,7 @@ public class Main extends JavaPlugin
                                                 p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.YELLOW + ownerNames2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.RED + "(no owners)");
+                                                p.sendMessage(ChatColor.BLUE + "Овнеры: " + ChatColor.RED + "(нет)");
                                             }
                                         }
                                         else {
@@ -611,7 +611,7 @@ public class Main extends JavaPlugin
                                                 p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.YELLOW + myFlag2);
                                             }
                                             else {
-                                                p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.RED + "(none)");
+                                                p.sendMessage(ChatColor.BLUE + "Флаги: " + ChatColor.RED + "(отсутствуют)");
                                             }
                                         }
                                         else {
@@ -692,13 +692,13 @@ public class Main extends JavaPlugin
                         p.sendMessage(ChatColor.YELLOW + "Количество приватов " + args[1] + ": " + count);
                         return true;
                     }
-                    p.sendMessage(ChatColor.RED + "Использование: /ps count, /ps count [player]");
+                    p.sendMessage(ChatColor.RED + "Использование: /ps count, /ps count [ник игрока]");
                     return true;
                 }
                 else {
                     if (args[0].equalsIgnoreCase("region")) {
                         if (args.length < 3) {
-                            p.sendMessage(ChatColor.YELLOW + "/ps region {count|list|remove|regen|disown} {playername}");
+                            p.sendMessage(ChatColor.YELLOW + "/ps region {count|list|remove|regen|disown} {ник игрока}");
                             return true;
                         }
                         if (p.hasPermission("protectionstones.region")) {
